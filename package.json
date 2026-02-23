@@ -1,7 +1,7 @@
 {
-  "name": "mocha-app",
+  "name": "quizsnap-ai",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "dependencies": {
     "@hono/zod-validator": "^0.5.0",
@@ -24,7 +24,7 @@
     "@types/node": "22.14.1",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
-    "@vitejs/plugin-react": "4.4.1",
+    "@vitejs/plugin-react": "^5.1.4",
     "autoprefixer": "^10.4.21",
     "eslint": "9.25.1",
     "eslint-plugin-react-hooks": "5.2.0",
@@ -40,7 +40,7 @@
     "knip": "^5.51.0"
   },
   "scripts": {
-    "build": "tsc -b && vite build",
+    "build": "npm run cf-typegen && tsc -b && vite build",
     "cf-typegen": "wrangler types",
     "check": "tsc && vite build && wrangler deploy --dry-run",
     "dev": "vite",
