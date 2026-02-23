@@ -40,11 +40,9 @@
     "knip": "^5.51.0"
   },
   "scripts": {
-    "build": "npm run cf-typegen && tsc -b && vite build",
-    "cf-typegen": "wrangler types",
-    "check": "tsc && vite build && wrangler deploy --dry-run",
+    "build": "tsc -b && vite build",
     "dev": "vite",
-    "knip": "knip",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typegen": "wrangler types"
   }
 }
