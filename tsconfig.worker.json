@@ -1,14 +1,15 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "composite": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "lib": ["ESNext", "WebWorker"],
     "types": ["@cloudflare/workers-types"],
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "target": "ESNext",
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "composite": true,
+    "noEmit": true
   },
   "include": ["src/worker/**/*.ts", "worker-configuration.d.ts"]
 }
