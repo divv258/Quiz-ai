@@ -5,19 +5,19 @@ import { cloudflare } from "@cloudflare/vite-plugin";
 import { mochaPlugins } from "@getmocha/vite-plugins";
 
 export default defineConfig({
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-	  plugins: [
-	    ...mochaPlugins(process.env as any),
-	    react(),
-	    cloudflare({
-	      auxiliaryWorkers: [{ configPath: "/mocha/emails-service/wrangler.json" }],
-	    }),
-	  ],
-	  server: {
-	    allowedHosts: true,
-	  },
+  plugins: [
+    // mochaPlugins handles the internal logic for your template
+    ...mochaPlugins(process.env as any),
+    react(),
+    cloudflare(), // Removed the missing emails-service auxiliary worker
+  ],
+  server: {
+    allowedHosts: true,
+  },
   build: {
     chunkSizeWarningLimit: 5000,
+    // Ensure the build output matches what Vercel/Cloudflare expects
+    outDir: "dist",
   },
   resolve: {
     alias: {
